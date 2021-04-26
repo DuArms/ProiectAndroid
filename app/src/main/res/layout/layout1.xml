@@ -4,14 +4,48 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/black"
-        android:gravity="center"
-        android:text="File Manager"
-        android:textColor="@color/white"
-        android:textSize="25dp" />
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/refresh"
+            android:text="R"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/goBack"
+            android:text="B"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/pathOutput"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:gravity="center"
+            android:text="Path"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_weight="4"
+            />
+
+        <Button
+            android:id="@+id/newFolder"
+            android:text="NF"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
 
 
     <ListView
@@ -24,39 +58,42 @@
 
 
     <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/b1"
+            android:text="DEL"
+            android:id="@+id/delete"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/b2"
+            android:visibility="gone"
+            android:text="Rename"
+            android:id="@+id/rename"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/b3"
+            android:text="Copy"
+            android:id="@+id/copy"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/b4"
+            android:visibility="gone"
+            android:text="Paste"
+            android:id="@+id/paste"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <Button
-            android:id="@+id/b5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
 
     </LinearLayout>
 </LinearLayout>
