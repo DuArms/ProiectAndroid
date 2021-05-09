@@ -8,17 +8,11 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp">
-        <Button
-            android:id="@+id/refresh"
-            android:text="R"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            />
+
 
         <Button
             android:id="@+id/goBack"
-            android:text="B"
+            android:text="Back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -28,21 +22,17 @@
             android:id="@+id/pathOutput"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@color/black"
+            android:background="@color/white"
+            android:textColor="@color/black"
             android:gravity="center"
             android:text="Path"
-            android:textColor="@color/white"
+
             android:textSize="20sp"
             android:layout_weight="4"
             />
 
-        <Button
-            android:id="@+id/newFolder"
-            android:text="NF"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            />
+
+
 
     </LinearLayout>
 
@@ -86,13 +76,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <Button
-            android:visibility="gone"
-            android:text="Paste"
-            android:id="@+id/paste"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
 
 
     </LinearLayout>
