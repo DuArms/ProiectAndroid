@@ -57,7 +57,7 @@ public class Logic {
     public void createTextFile() {
         final AlertDialog.Builder textEditDialog = new AlertDialog.Builder(parent);
 
-        View viewBugReport = LayoutInflater.from(textEditDialog.getContext()).inflate(R.layout.dialogedittxt,null);
+        View viewBugReport = LayoutInflater.from(textEditDialog.getContext()).inflate(R.layout.dialogedittxt, null);
 
         textEditDialog.setTitle("Text Edit");
 
@@ -105,7 +105,7 @@ public class Logic {
     public void editTextFile(File file) {
         final AlertDialog.Builder textEditDialog = new AlertDialog.Builder(parent);
 
-        View viewBugReport = LayoutInflater.from(textEditDialog.getContext()).inflate(R.layout.dialogedittxt,null);
+        View viewBugReport = LayoutInflater.from(textEditDialog.getContext()).inflate(R.layout.dialogedittxt, null);
 
         textEditDialog.setTitle("Text Edit");
 
@@ -129,11 +129,10 @@ public class Logic {
             content.setText(allData.toString());
 
         } catch (FileNotFoundException e) {
-            Log.e("MiRo" ,   e.toString()) ;
+            Log.e("MiRo", e.toString());
 
 
         }
-
 
 
         textEditDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -148,7 +147,6 @@ public class Logic {
 
                 File root = new File(rootPath);
                 String fileName = name.getText().toString();
-
 
 
                 try {
@@ -223,7 +221,7 @@ public class Logic {
                 for (int i = 0; i < sourceLocation.listFiles().length; i++) {
 
                     copy(new File(sourceLocation, children[i]),
-                            new File(directory, children[i]));
+                            directory);
 
                     Log.d("MiRo", directory.toString());
                 }
@@ -232,7 +230,15 @@ public class Logic {
 
                 InputStream in = new FileInputStream(sourceLocation);
 
-                OutputStream out = new FileOutputStream(new File(targetLocation + File.separator + sourceLocation.getName()));
+                File f = new File(targetLocation + File.separator + sourceLocation.getName());
+
+                if (f.exists()) {
+                    String name = sourceLocation.getName();
+                    name = name.substring(0, name.lastIndexOf('.')) + "_1" + name.substring(name.lastIndexOf('.'));
+                    f = new File(targetLocation + File.separator + name);
+                }
+
+                OutputStream out = new FileOutputStream(f);
 
                 // Copy the bits from instream to outstream
                 byte[] buf = new byte[1024];
@@ -270,8 +276,15 @@ public class Logic {
         for (File file : files) {
             String paths = file.getAbsolutePath();
             paths = paths.substring(paths.lastIndexOf(File.separator) + 1);
+
+            if (file.isDirectory()) {
+                filesList.add("dir : " + paths);
+            } else {
+                filesList.add("file : " + paths);
+            }
             // Log.d("fileNames", paths);
-            filesList.add(paths);
+
+
         }
 
         parent.setAdapter(new TextAdapter());
